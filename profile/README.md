@@ -18,9 +18,11 @@ optimization techniques.
 - **bazar-gateway-service**: Handles user interactions and routes requests to backend services.
 - **bazar-catalog-service**: Manages the book catalog, including stock levels and book details.
 - **bazar-order-service**: Manages order requests, verifies stock availability, and processes purchases.
-- **bazar-deployment**: Contains Docker Compose and (if used) orchestration configurations.
 - **bazar-protos**: Stores Protobuf files (if used) for defining service interfaces.
 - **.github**: Stores project documentation, including design documents.
+
+Each service includes its own `docker-compose.yml` file for development. The **gateway service** acts as the main entry
+point, coordinating all services.
 
 ---
 
@@ -114,11 +116,13 @@ optimization techniques.
 2. **Configuration**:
     - Set up environment variables and configurations as specified in each service’s `README.md`.
 3. **Start Services**:
-    - Use the provided `docker-compose.yml` in the `bazar-deployment` repository for Docker-based deployment.
+    - Use the provided `docker-compose.yml` in the `bazar-gateway-service` repository to start all services together.
 4. **Accessing the Application**:
-    - **Gateway Service**: Access the gateway at `http://<gateway_ip>:8080`.
+    - **Gateway Service**: Access the gateway at `http://localhost:5000`.
 5. **Testing and Verification**:
-    - Use a client script or Postman to test the API endpoints.
+    - Use the `tests.http` file or a tool like Postman to test the API endpoints.
+
+Each service can also be run individually using its own `docker-compose.yml` file for isolated development and testing.
 
 ---
 
