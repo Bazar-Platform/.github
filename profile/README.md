@@ -1,3 +1,10 @@
+# Bazar Platform
+
+- Refer to [**Lab1.pdf**](https://github.com/Bazar-Platform/.github/blob/main/assets/Lab1.pdf) and
+  [**Lab2.pdf**](https://github.com/Bazar-Platform/.github/blob/main/assets/Lab2.pdf) for complete project descriptions.
+- Project documentation is available in the `.github` directory.
+- Specific documentation for each service is available in their respective repositories.
+
 ## Overview
 
 This project series focuses on building and enhancing **Bazar.com**, a multi-tier online bookstore system. Initially,
