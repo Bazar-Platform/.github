@@ -26,7 +26,7 @@ point, coordinating all services.
 
 ---
 
-## Lab 1: Bazar.com - A Multi-Tier Online Book Store
+## Lab 1: Bazar - A Multi-Tier Online Book Store
 
 ### Objectives
 
@@ -55,7 +55,7 @@ point, coordinating all services.
 
 ---
 
-## Lab 2: Scaling Bazar.com with Replication, Caching, and Containerization
+## Lab 2: Scaling Bazar with Replication, Caching, and Containerization
 
 ### Objectives
 
