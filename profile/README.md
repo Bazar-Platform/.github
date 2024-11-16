@@ -18,7 +18,6 @@ optimization techniques.
 - **bazar-gateway-service**: Handles user interactions and routes requests to backend services.
 - **bazar-catalog-service**: Manages the book catalog, including stock levels and book details.
 - **bazar-order-service**: Manages order requests, verifies stock availability, and processes purchases.
-- **bazar-protos**: Stores Protobuf files (if used) for defining service interfaces.
 - **.github**: Stores project documentation, including design documents.
 
 Each service includes its own `docker-compose.yml` file for development. The **gateway service** acts as the main entry
