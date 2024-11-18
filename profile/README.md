@@ -2,8 +2,9 @@
 
 - Refer to [**Lab1.pdf**](https://github.com/Bazar-Platform/.github/blob/main/assets/Lab1.pdf) and
   [**Lab2.pdf**](https://github.com/Bazar-Platform/.github/blob/main/assets/Lab2.pdf) for complete project descriptions.
-- Project documentation is available in the `.github` directory.
 - Specific documentation for each service is available in their respective repositories.
+
+---
 
 ## Overview
 
@@ -22,6 +23,54 @@ optimization techniques.
 
 Each service includes its own `docker-compose.yml` file for development. The **gateway service** acts as the main entry
 point, coordinating all services.
+
+---
+
+## Architecture
+
+### High-Level Design
+
+The Bazar system uses a microservices-based architecture, with each service responsible for a specific domain of the
+application. These services communicate with each other using REST. The system includes caching and
+replication to improve performance and ensure fault tolerance.
+
+![System Architecture](https://github.com/Bazar-Platform/.github/blob/main/assets/SystemDesign.png)
+
+#### Key Components
+
+1. **Gateway Service**:
+    - Acts as the entry point for all client traffic.
+    - Handles routing, caching, and load balancing for the backend services.
+    - Ensures high availability and improved performance through in-memory caching and intelligent request distribution.
+
+2. **Catalog Service**:
+    - Maintains the book catalog, including details such as stock, price, and topic.
+    - Implements a **primary-backup replication** for fault tolerance and performance:
+        - The primary instance handles all write operations, and syncs updates with the backup.
+    - Integrates with the gateway for cache invalidation upon updates.
+
+3. **Order Service**:
+    - Processes purchase requests, verifies stock availability, and updates catalog data.
+    - Uses multiple replicas to handle increased loads.
+    - Works with the gateway for balanced request distribution.
+
+4. **Cache**:
+    - An in-memory cache in the Gateway Service stores frequently accessed data (e.g., book details).
+    - Includes an invalidation mechanism triggered by updates to ensure consistency.
+
+#### Communication Flow
+
+- **Search and Query**:
+    - The gateway queries the primary Catalog Service for book details.
+    - Frequently accessed queries are cached to reduce load on the backend.
+
+- **Purchases**:
+    - Purchase requests are routed through the gateway to the Order Service.
+    - The Order Service communicates with the Catalog Service to validate and update stock levels.
+
+- **Cache Invalidation**:
+    - When the Catalog Service processes an update, it notifies the Gateway Service to invalidate relevant cache
+      entries.
 
 ---
 
