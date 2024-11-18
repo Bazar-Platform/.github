@@ -1,16 +1,18 @@
 # Bazar Platform
 
 - Refer to [**Lab1.pdf**](https://github.com/Bazar-Platform/.github/blob/main/documents/Lab1.pdf) and
-  [**Lab2.pdf**](https://github.com/Bazar-Platform/.github/blob/main/documents/Lab2.pdf) for complete project
+  [**Lab2.pdf**](https://github.com/Bazar-Platform/.github/blob/main/documents/Lab2.pdf) for detailed project
   requirements.
+- Refer to [**Report.pdf**](https://github.com/Bazar-Platform/.github/blob/main/documents/Report.pdf) for an overview of
+  the project and its components.
 - Specific documentation for each service is available in their respective repositories.
 
 ---
 
 ## Overview
 
-This project series focuses on building and enhancing **Bazar.com**, a multi-tier online bookstore system. Initially,
-Bazar.com starts as a small, minimalistic online bookstore with a catalog of only four books. The project progressively
+This project series focuses on building and enhancing **Bazar**, a multi-tier online bookstore system. Initially,
+Bazar starts as a small, minimalistic online bookstore with a catalog of only four books. The project progressively
 adds complexity and functionality, such as replication, caching, and containerization, to handle higher demand and
 improve performance. The goal is to deepen your understanding of distributed systems, web microservices, and performance
 optimization techniques.
