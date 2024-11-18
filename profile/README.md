@@ -1,7 +1,8 @@
 # Bazar Platform
 
-- Refer to [**Lab1.pdf**](https://github.com/Bazar-Platform/.github/blob/main/assets/Lab1.pdf) and
-  [**Lab2.pdf**](https://github.com/Bazar-Platform/.github/blob/main/assets/Lab2.pdf) for complete project descriptions.
+- Refer to [**Lab1.pdf**](https://github.com/Bazar-Platform/.github/blob/main/documents/Lab1.pdf) and
+  [**Lab2.pdf**](https://github.com/Bazar-Platform/.github/blob/main/documents/Lab2.pdf) for complete project
+  requirements.
 - Specific documentation for each service is available in their respective repositories.
 
 ---
@@ -36,12 +37,17 @@ replication to improve performance and ensure fault tolerance.
 
 ![System Architecture](https://github.com/Bazar-Platform/.github/blob/main/assets/SystemDesign.png)
 
+[Excalidraw Link](https://excalidraw.com/#json=-hVk5zOBo8IaVsKXkbG2l,NRkmCo3XwbNGVUZ0aoi-DA)
+
 #### Key Components
 
 1. **Gateway Service**:
     - Acts as the entry point for all client traffic.
-    - Handles routing, caching, and load balancing for the backend services.
+    - Handles routing, caching, and load balancing for the backend services. It uses **Round-Robin** load balancing
+      algorithm to distribute load evenly among nodes.
     - Ensures high availability and improved performance through in-memory caching and intelligent request distribution.
+    - An in-memory cache in the Gateway Service stores frequently accessed data (e.g., book details). It uses **LRU**
+      (least recently used) method to eliminate data when cache size limit is hit.
 
 2. **Catalog Service**:
     - Maintains the book catalog, including details such as stock, price, and topic.
@@ -53,10 +59,6 @@ replication to improve performance and ensure fault tolerance.
     - Processes purchase requests, verifies stock availability, and updates catalog data.
     - Uses multiple replicas to handle increased loads.
     - Works with the gateway for balanced request distribution.
-
-4. **Cache**:
-    - An in-memory cache in the Gateway Service stores frequently accessed data (e.g., book details).
-    - Includes an invalidation mechanism triggered by updates to ensure consistency.
 
 #### Communication Flow
 
